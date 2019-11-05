@@ -33,7 +33,8 @@ class ToastContainer extends Component {
       elevation: 9,
       paddingHorizontal: Platform.OS === "ios" ? 20 : 0,
       top: this.state.position === "top" ? this.getTop() : undefined,
-      bottom: this.state.position === "bottom" ? this.getTop() : undefined
+      bottom: this.state.position === "bottom" ? this.getTop() : undefined,
+      ...this.state.containerStyle,
     };
   }
   getTop() {
@@ -66,6 +67,7 @@ class ToastContainer extends Component {
       buttonTextStyle: config.buttonTextStyle,
       buttonStyle: config.buttonStyle,
       textStyle: config.textStyle,
+      containerStyle: config.containerStyle,
       onClose: config.onClose
     });
     // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
